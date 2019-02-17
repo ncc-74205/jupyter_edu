@@ -2,4 +2,7 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
 
-set -e
+cd /home/jovyan/jupyter_edu_data
+git reset --hard
+git pull
+cd /home/jovyan
