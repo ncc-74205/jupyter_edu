@@ -268,5 +268,6 @@ RUN rm /var/log/mysql/error.log
 user $NB_UID
 
 # configure container startup
-ENTRYPOINT ["tini", "-g", "--"]
+#ENTRYPOINT ["tini", "-g", "--"]
+ENTRYPOINT ["start-mysql.sh"]
 CMD ["start-notebook.sh"]
