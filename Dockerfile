@@ -261,13 +261,13 @@ RUN chmod +x /usr/local/bin/start.sh
 RUN chmod +x /usr/local/bin/start-notebook.sh
 RUN chmod +x /usr/local/bin/start-singleuser.sh
 RUN fix-permissions /etc/jupyter/
-RUN echo '#!/bin/bash\nmysqld_safe --skip-grant-tables && >> /home/jovyan/start-mysql.log' >> /usr/local/bin/start-mysql.sh
+RUN echo '#!/bin/bash\nmysqld_safe --skip-grant-tables && >> /home/jovyan/start-mysql.log\ntini -g --' >> /usr/local/bin/start-mysql.sh
 RUN chmod +x /usr/local/bin/start-mysql.sh
 RUN rm /var/log/mysql/error.log
 
 user $NB_UID
 
 # configure container startup
-ENTRYPOINT ["tini", "-g", "--"]
-#ENTRYPOINT ["start-mysql.sh"]
+#ENTRYPOINT ["tini", "-g", "--"]
+ENTRYPOINT ["start-mysql.sh"]
 #CMD ["start-notebook.sh"]
