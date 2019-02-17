@@ -148,5 +148,4 @@ else
     echo "Executing the command: $cmd"
     exec $cmd
     sleep 5
-    mysqld_safe --skip-grant-tables
 fi
