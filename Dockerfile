@@ -276,7 +276,6 @@ COPY entrypoint.sh /usr/local/bin/
 COPY jupyter_notebook_config.py /etc/jupyter/
 RUN chmod +x /usr/local/bin/entrypoint.sh
 RUN fix-permissions /etc/jupyter/
-RUN chmod +x /usr/local/bin/entrypoint.sh
 RUN rm /var/log/mysql/error.log
 
 user $NB_UID
