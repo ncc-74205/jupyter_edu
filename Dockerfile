@@ -240,6 +240,7 @@ RUN python -m bash_kernel.install
 RUN pip install markdown-kernel
 RUN python -m markdown_kernel.install
 
+USER root
 # nbextensions
 RUN conda install -c conda-forge jupyter_contrib_nbextensions
 RUN jupyter nbextension enable execute_time/main
@@ -254,6 +255,8 @@ RUN jupyter nbextension enable scroll_down/main
 RUN jupyter nbextension enable toc2/main
 RUN jupyter nbextension enable collapsible_headings/main
 RUN jupyter nbextension enable tree-filter/main
+
+USER $NB_UID
 
 # checkout git repository containing files for studying
 RUN cd /home/$NB_USER && git clone https://github.com/ncc-74205/jupyter_edu_data.git
