@@ -11,6 +11,8 @@ else
     cmd=$*
 fi
 
+/usr/local/bin/start-mysql.sh
+
 run-hooks () {
     # Source scripts or run executable files in a directory
     if [[ ! -d "$1" ]] ; then
