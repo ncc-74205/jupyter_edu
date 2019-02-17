@@ -243,7 +243,7 @@ RUN python -m markdown_kernel.install
 USER root
 # nbextensions
 RUN conda install -c conda-forge jupyter_contrib_nbextensions
-RUN jupyter nbextension enable ExecuteTime/main
+RUN jupyter nbextension enable execute_time/ExecuteTime
 RUN jupyter nbextension enable rubberband/main
 RUN jupyter nbextension enable exercise2/main
 RUN jupyter nbextension enable freeze/main
@@ -254,6 +254,8 @@ RUN jupyter nbextension enable init_cell/main
 RUN jupyter nbextension enable scroll_down/main
 RUN jupyter nbextension enable toc2/main
 RUN jupyter nbextension enable collapsible_headings/main
+RUN jupyter nbextension enable collapsible_headings/main
+RUN jupyter nbextension enable tree-filter/index
 
 USER $NB_UID
 
