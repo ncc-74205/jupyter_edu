@@ -9,6 +9,8 @@ git reset --hard
 git pull
 cd /home/jovyan
 
+/usr/local/bin/start-mysql.sh
+
 if [[ ! -z "${JUPYTERHUB_API_TOKEN}" ]]; then
   # launched by JupyterHub, use single-user entrypoint
   exec /usr/local/bin/start-singleuser.sh $*
