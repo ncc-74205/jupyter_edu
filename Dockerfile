@@ -253,15 +253,10 @@ WORKDIR $HOME
 
 user root
 # Add local files as late as possible to avoid cache busting
-COPY start.sh /usr/local/bin/
-COPY start-notebook.sh /usr/local/bin/
-COPY start-singleuser.sh /usr/local/bin/
+COPY entrypoint.sh /usr/local/bin/
 COPY jupyter_notebook_config.py /etc/jupyter/
-RUN chmod +x /usr/local/bin/start.sh
-RUN chmod +x /usr/local/bin/start-notebook.sh
-RUN chmod +x /usr/local/bin/start-singleuser.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
 RUN fix-permissions /etc/jupyter/
-RUN echo '#!/bin/bash\nmysqld_safe --skip-grant-tables &\ntini -g -- "$@"' >> /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 RUN rm /var/log/mysql/error.log
 
