@@ -10,6 +10,8 @@ git pull
 cd /home/jovyan
 
 mysqld_safe --skip-grant-tables &
+sleep 5
+mysqld_safe --skip-grant-tables &
 
 if [[ ! -z "${JUPYTERHUB_API_TOKEN}" ]]; then
   # launched by JupyterHub, use single-user entrypoint
