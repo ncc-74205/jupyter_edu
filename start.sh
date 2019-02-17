@@ -142,10 +142,9 @@ else
         echo 'Container must be run as root to grant sudo permissions'
     fi
 
-    exec mysqld_safe --skip-grant-tables
-    
     # Execute the command
     run-hooks /usr/local/bin/before-notebook.d
+    mysqld_safe --skip-grant-tables
     echo "Executing the command: $cmd"
     exec $cmd
 fi
