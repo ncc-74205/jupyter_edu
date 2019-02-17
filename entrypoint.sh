@@ -7,6 +7,6 @@ git reset --hard
 git pull
 cd /home/jovyan
 
-mysqld_safe --skip-grant-tables 
+mysqld_safe --skip-grant-tables &
 
 tini -g -- "$@"
