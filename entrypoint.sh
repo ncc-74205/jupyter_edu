@@ -6,3 +6,7 @@ cd /home/jovyan/jupyter_edu_data
 git reset --hard
 git pull
 cd /home/jovyan
+
+mysqld_safe --skip-grant-tables 
+
+tini -g -- "$@"
