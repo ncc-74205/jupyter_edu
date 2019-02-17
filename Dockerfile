@@ -263,6 +263,7 @@ RUN chmod +x /usr/local/bin/start-singleuser.sh
 RUN fix-permissions /etc/jupyter/
 RUN echo 'mysqld_safe --skip-grant-tables &' >> /usr/local/bin/start-mysql.sh
 RUN chmod +x /usr/local/bin/start-mysql.sh
+RUN rm /var/log/mysql/error.log
 
 user $NB_UID
 
