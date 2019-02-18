@@ -255,7 +255,7 @@ RUN jupyter nbextension enable scroll_down/main
 RUN jupyter nbextension enable toc2/main
 RUN jupyter nbextension enable collapsible_headings/main
 RUN jupyter nbextension enable collapsible_headings/main
-RUN jupyter nbextension enable tree-filter/index
+RUN jupyter nbextension enable gist-it/main
 
 USER $NB_UID
 
