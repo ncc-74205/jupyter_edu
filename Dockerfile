@@ -255,7 +255,10 @@ RUN jupyter nbextension enable scroll_down/main
 RUN jupyter nbextension enable toc2/main
 RUN jupyter nbextension enable collapsible_headings/main
 RUN jupyter nbextension enable collapsible_headings/main
-RUN jupyter nbextension enable gist-it/main
+RUN jupyter nbextension enable gist_it/main
+
+#nbgrader
+RUN conda install -c conda-forge nbgrader
 
 USER $NB_UID
 
