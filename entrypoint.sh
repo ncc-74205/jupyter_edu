@@ -4,7 +4,7 @@
 
 cd /home/jovyan/jupyter_edu_data
 git reset --hard
-git pull
+git pull || true
 cd /home/jovyan
 
 mysqld_safe --skip-grant-tables &
