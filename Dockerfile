@@ -260,7 +260,39 @@ RUN jupyter nbextension enable gist_it/main
 #nbgrader
 RUN conda install -c conda-forge nbgrader
 
+#save as pdf bugfix
+RUN apt-get update
+RUN apt-get install -yq --no-install-recommends texlive-generic-recommended
+
+#drawing inside jupyter notebook
+RUN pip install git+https://github.com/uclmr/egal.git
+RUN jupyter nbextension install --py egal 
+RUN jupyter nbextension enable --py egal 
+
+#visualization toolkit
+RUN conda install bokeh
+
+#dicom
+RUN conda install -c conda-forge pydicom 
+
+#volume visualization
+RUN conda install -c conda-forge ipyvolume
+
+#k3d for 3d visualization
+RUN pip install k3d
+
+#fix problem cannot connect to kernel with container running on windows
+#see https://github.com/jupyter/notebook/issues/2664
+RUN pip uninstall -y tornado
+RUN pip install tornado==5.1.1
+
 USER $NB_UID
+
+#display maps via python
+RUN pip install folium
+
+#midi generator
+RUN pip install pyknon
 
 # checkout git repository containing files for studying
 RUN cd /home/$NB_USER && git clone https://github.com/ncc-74205/jupyter_edu_data.git
