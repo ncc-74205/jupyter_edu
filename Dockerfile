@@ -275,9 +275,11 @@ WORKDIR $HOME
 
 user root
 # Add local files as late as possible to avoid cache busting
+COPY start-notebook.sh /usr/local/bin/
 COPY entrypoint.sh /usr/local/bin/
 COPY jupyter_notebook_config.py /etc/jupyter/
 RUN chmod +x /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/start-notebook.sh
 RUN fix-permissions /etc/jupyter/
 RUN rm /var/log/mysql/error.log
 
@@ -285,3 +287,4 @@ user $NB_UID
 
 # configure container startup
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+CMD ["start-notebook.sh"]
