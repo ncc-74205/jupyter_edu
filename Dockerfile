@@ -319,4 +319,4 @@ user $NB_UID
 
 # configure container startup
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-CMD ["start-notebook.sh"]
+CMD ["/usr/local/bin/start-notebook.sh"]
