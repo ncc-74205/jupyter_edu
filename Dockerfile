@@ -294,15 +294,15 @@ RUN pip install folium
 #midi generator
 RUN pip install pyknon
 
-# checkout git repository containing files for studying
-RUN cd /home/$NB_USER && git clone https://github.com/ncc-74205/jupyter_edu_data.git
-
 # Remove unused folders
 RUN rm -r /home/$NB_USER/tmp
 RUN rm -r /home/$NB_USER/work
 
 EXPOSE 3306
 EXPOSE 8888
+
+RUN pip install notebook==5.7.7
+
 WORKDIR $HOME
 
 user root
