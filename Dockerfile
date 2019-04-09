@@ -301,8 +301,6 @@ RUN rm -r /home/$NB_USER/work
 EXPOSE 3306
 EXPOSE 8888
 
-RUN pip install notebook==5.7.7
-
 WORKDIR $HOME
 
 user root
